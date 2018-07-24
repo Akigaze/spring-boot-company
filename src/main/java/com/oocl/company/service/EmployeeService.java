@@ -19,6 +19,10 @@ public class EmployeeService {
         employees.add(new Employee(5,"Quinn",21,"woman",500));
     }
 
+    public EmployeeService(List<Employee> employees) {
+        this.employees=employees;
+    }
+
     public List<Employee> getEmployees() {
         return this.employees;
     }
