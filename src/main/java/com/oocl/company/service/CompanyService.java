@@ -27,6 +27,7 @@ public class CompanyService {
         this.companies = companies;
     }
 
+
     public List<Company> getCompanies() {
         return companies;
     }
