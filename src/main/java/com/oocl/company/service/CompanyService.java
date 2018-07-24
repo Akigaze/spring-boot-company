@@ -4,6 +4,7 @@ import com.oocl.company.model.Company;
 import com.oocl.company.model.Employee;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -50,5 +51,17 @@ public class CompanyService {
 
     public List<Employee> getEmployeesOfCompanyEmployees(int order) {
         return companies.get(order-1).getEmployees();
+    }
+
+    public List<Company> getCompanyPage(int pageId, int pageSize) {
+        int index=(pageId-1)*pageSize+1;
+        int end=pageId*pageSize+1;
+        List<Company> selections=new ArrayList<>();
+
+        while (index<end&&index<=companies.size()){
+            selections.add(companies.get(index-1));
+            index++;
+        }
+        return selections;
     }
 }

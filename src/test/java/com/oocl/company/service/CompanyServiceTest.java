@@ -1,7 +1,6 @@
 package com.oocl.company.service;
 
 import com.oocl.company.model.Company;
-import com.oocl.company.model.Company;
 import com.oocl.company.model.Employee;
 import org.junit.Test;
 
@@ -98,4 +97,28 @@ public class CompanyServiceTest {
         //then
         assertThat(result,is(employees));
     }
+
+    @Test
+    public void should_get_companies_by_page_when_getCompanyPage() {
+        //give
+        List<Company> companies = new ArrayList<>();
+        Company emp1 = new Company();
+        Company emp2 = new Company();
+        Company emp3 = new Company();
+        companies.add(new Company());
+        companies.add(new Company());
+        companies.add(emp1);
+        companies.add(emp2);
+        companies.add(emp3);
+        int pageId = 2;
+        int pageSize = 2;
+        //when
+        CompanyService service = new CompanyService(companies);
+        List<Company> result = service.getCompanyPage(pageId, pageSize);
+        //then
+        assertThat(result.contains(emp1), is(true));
+        assertThat(result.contains(emp2), is(true));
+        assertThat(result.contains(emp3), is(false));
+    }
+
 }
