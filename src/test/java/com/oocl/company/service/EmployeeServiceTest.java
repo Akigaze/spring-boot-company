@@ -14,8 +14,8 @@ public class EmployeeServiceTest {
     public void should_get_all_employees_when_call_getEmployees(){
         //give
         List<Employee> employees=new ArrayList<>();
-        employees.add(new Employee(1,"Mark",22,"man",500));
-        employees.add(new Employee(2,"Bale",21,"man",500));
+        employees.add(new Employee(1,"Mark",22,"male",500));
+        employees.add(new Employee(2,"Bale",21,"male",500));
         //when
         EmployeeService service=new EmployeeService(employees);
         List<Employee> result=service.getEmployees();
@@ -27,8 +27,8 @@ public class EmployeeServiceTest {
     public void should_get_specific_employee_when_call_getEmployeeById(){
         //give
         List<Employee> employees=new ArrayList<>();
-        Employee except=new Employee(2,"Bale",21,"man",500);
-        employees.add(new Employee(1,"Mark",22,"man",500));
+        Employee except=new Employee(2,"Bale",21,"male",500);
+        employees.add(new Employee(1,"Mark",22,"male",500));
         employees.add(except);
         //when
         EmployeeService service=new EmployeeService(employees);
@@ -41,8 +41,8 @@ public class EmployeeServiceTest {
     public void should_add_a_specific_employee_when_call_addEmployee(){
         //give
         List<Employee> employees=new ArrayList<>();
-        Employee except=new Employee(2,"Bale",21,"man",500);
-        employees.add(new Employee(1,"Mark",22,"man",500));
+        Employee except=new Employee(2,"Bale",21,"male",500);
+        employees.add(new Employee(1,"Mark",22,"male",500));
         //when
         EmployeeService service=new EmployeeService(employees);
         service.addEmployee(except);
@@ -54,8 +54,8 @@ public class EmployeeServiceTest {
     public void should_delete_a_specific_employee_by_id_when_call_deleteEmployeeById(){
         //give
         List<Employee> employees=new ArrayList<>();
-        Employee except=new Employee(2,"Bale",21,"man",500);
-        employees.add(new Employee(1,"Mark",22,"man",500));
+        Employee except=new Employee(2,"Bale",21,"male",500);
+        employees.add(new Employee(1,"Mark",22,"male",500));
         employees.add(except);
         //when
         EmployeeService service=new EmployeeService(employees);
@@ -69,10 +69,10 @@ public class EmployeeServiceTest {
     public void should_update_a_specific_employee_when_call_updateEmployee(){
         //give
         List<Employee> employees=new ArrayList<>();
-        Employee except=new Employee(2,"Bale",21,"man",500);
-        employees.add(new Employee(1,"Mark",22,"man",500));
+        Employee except=new Employee(2,"Bale",21,"male",500);
+        employees.add(new Employee(1,"Mark",22,"male",500));
         employees.add(except);
-        Employee newEmp=new Employee(2,"Mark",25,"man",600);
+        Employee newEmp=new Employee(2,"Mark",25,"male",600);
         //when
         EmployeeService service=new EmployeeService(employees);
         Employee emp=service.updateEmployee(2,newEmp);
@@ -81,30 +81,30 @@ public class EmployeeServiceTest {
     }
 
     @Test
-    public void should_get_man_employees_when_search_men_by_getEmployeeByGender(){
+    public void should_get_male_employees_when_search_men_by_getEmployeeByGender(){
         //give
         List<Employee> employees=new ArrayList<>();
-        Employee man=new Employee(2,"Bale",21,"man",500);
-        Employee woman=new Employee(1,"Mark",22,"woman",500);
-        employees.add(man);
-        employees.add(woman);
+        Employee male=new Employee(2,"Bale",21,"male",500);
+        Employee female=new Employee(1,"Mark",22,"female",500);
+        employees.add(male);
+        employees.add(female);
         //when
         EmployeeService service=new EmployeeService(employees);
-        List<Employee> menEmp=service.getEmployeeByGender("man");
+        List<Employee> menEmp=service.getEmployeeByGender("male");
         //then
-        assertThat(menEmp.contains(man),is(true));
-        assertThat(menEmp.contains(woman),is(false));
+        assertThat(menEmp.contains(male),is(true));
+        assertThat(menEmp.contains(female),is(false));
     }
 
     @Test
     public void should_get_employees_by_page_when_getEmployeesPage(){
         //give
         List<Employee> employees=new ArrayList<>();
-        Employee emp1=new Employee(3,"Tracy",20,"woman",500);
-        Employee emp2=new Employee(4,"Leo",22,"man",500);
-        Employee emp3=new Employee(5,"Quinn",21,"woman",500);
-        employees.add(new Employee(1,"Mark",22,"man",500));
-        employees.add(new Employee(2,"Bale",21,"man",500));
+        Employee emp1=new Employee(3,"Tracy",20,"female",500);
+        Employee emp2=new Employee(4,"Leo",22,"male",500);
+        Employee emp3=new Employee(5,"Quinn",21,"female",500);
+        employees.add(new Employee(1,"Mark",22,"male",500));
+        employees.add(new Employee(2,"Bale",21,"male",500));
         employees.add(emp1);
         employees.add(emp2);
         employees.add(emp3);

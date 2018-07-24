@@ -23,14 +23,14 @@ public class EmployeeController {
         return empService.getEmployeeById(id);
     }
 
-    @GetMapping("/employees/man")
-    public List<Employee> getManEmployee(){
-        return empService.getEmployeeByGender("man");
+    @GetMapping("/employees/male")
+    public List<Employee> getMaleEmployee(){
+        return empService.getEmployeeByGender("male");
     }
 
-    @GetMapping("/employees/woman")
-    public List<Employee> getWomanEmployee(){
-        return empService.getEmployeeByGender("woman");
+    @GetMapping("/employees/female")
+    public List<Employee> getFemaleEmployee(){
+        return empService.getEmployeeByGender("female");
     }
 
     @GetMapping("/employees/page/{page}/pageSize/{pageSize}")

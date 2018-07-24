@@ -13,11 +13,11 @@ public class EmployeeService {
 
     {
         this.employees=new ArrayList<>();
-        employees.add(new Employee(1,"Mark",22,"man",500));
-        employees.add(new Employee(2,"Bale",21,"man",500));
-        employees.add(new Employee(3,"Tracy",20,"woman",500));
-        employees.add(new Employee(4,"Leo",22,"man",500));
-        employees.add(new Employee(5,"Quinn",21,"woman",500));
+        employees.add(new Employee(1,"Mark",22,"male",500));
+        employees.add(new Employee(2,"Bale",21,"male",500));
+        employees.add(new Employee(3,"Tracy",20,"female",500));
+        employees.add(new Employee(4,"Leo",22,"male",500));
+        employees.add(new Employee(5,"Quinn",21,"female",500));
     }
 
     public EmployeeService() {
@@ -58,7 +58,7 @@ public class EmployeeService {
 
     public List<Employee> getEmployeeByGender(String gender) {
         List<Employee> emps=null;
-        if (gender.equals("man")||gender.equals("woman")){
+        if (gender.equals("male")||gender.equals("female")){
             emps=employees.stream().filter(e->e.getGender().equals(gender)).collect(Collectors.toList());
         }
         return emps;
