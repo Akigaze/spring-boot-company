@@ -33,6 +33,11 @@ public class EmployeeController {
         return empService.getEmployeeByGender("woman");
     }
 
+    @GetMapping("/employees/page/{page}/pageSize/{pageSize}")
+    public List<Employee> getEmployeePage(@PathVariable int page,@PathVariable int pageSize){
+        return empService.getEmployeesPage(page,pageSize);
+    }
+
     @PostMapping("/employees")
     public boolean addEmployee(@RequestBody Employee emp){
         return empService.addEmployee(emp);

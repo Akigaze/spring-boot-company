@@ -69,7 +69,7 @@ public class EmployeeService {
         int end=pageId*pageSize+1;
         List<Employee> selections=new ArrayList<>();
 
-        while (index<end&&index<employees.size()){
+        while (index<end&&index<=employees.size()){
             selections.add(employees.get(index-1));
             index++;
         }
