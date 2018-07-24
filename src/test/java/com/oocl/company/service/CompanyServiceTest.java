@@ -1,6 +1,7 @@
 package com.oocl.company.service;
 
 import com.oocl.company.model.Company;
+import com.oocl.company.model.Employee;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -40,13 +41,30 @@ public class CompanyServiceTest {
     @Test
     public void should_add_a_specific_Company_when_call_addCompany(){
         //give
-        List<Company> Companys=new ArrayList<>();
+        List<Company> companys=new ArrayList<>();
         Company except=new Company();
-        Companys.add(new Company());
+        companys.add(new Company());
         //when
-        CompanyService service=new CompanyService(Companys);
+        CompanyService service=new CompanyService(companys);
         service.addCompany(except);
         //then
-        assertThat(Companys.contains(except),is(true));
+        assertThat(companys.contains(except),is(true));
+    }
+
+    @Test
+    public void should_delete_a_specific_Company_and_its_employees_by_id_when_call_deleteCompanyByOrder(){
+        //give
+        List<Company> companys=new ArrayList<>();
+        List<Employee> employees=new ArrayList<>();
+
+        Company except=new Company("OOCL",employees);
+        employees.add(new Employee());
+        companys.add(except);
+        //when
+        CompanyService service=new CompanyService(companys);
+        service.deleteCompanyByOrder(1);
+        //then
+        assertThat(companys.contains(except),is(false));
+        assertThat(employees.size(),is(0));
     }
 }

@@ -33,4 +33,10 @@ public class CompanyService {
         companies.add(company);
         return company;
     }
+
+    public void deleteCompanyByOrder(int order) {
+        Company company=companies.get(order-1);
+        company.getEmployees().clear();
+        companies.remove(company);
+    }
 }

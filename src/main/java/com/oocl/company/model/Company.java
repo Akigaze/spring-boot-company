@@ -16,9 +16,9 @@ public class Company {
     public Company() {
     }
 
-    public Company(String companyName, int employeeNumber, List<Employee> employees) {
+    public Company(String companyName, List<Employee> employees) {
         this.companyName = companyName;
-        this.employeeNumber = employeeNumber;
+        this.employeeNumber = employees.size();
         this.employees = employees;
     }
 
