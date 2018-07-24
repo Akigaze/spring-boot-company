@@ -1,7 +1,6 @@
 package com.oocl.company.service;
 
 import com.oocl.company.model.Company;
-import com.oocl.company.model.Employee;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -22,5 +21,19 @@ public class CompanyServiceTest {
         List<Company> result=service.getCompanies();
         //then
         assertThat(result,is(companies));
+    }
+
+    @Test
+    public void should_get_specific_company_when_call_getCompanyByOrder(){
+        //give
+        List<Company> companies=new ArrayList<>();
+        Company except=new Company();
+        companies.add(new Company());
+        companies.add(except);
+        //when
+        CompanyService service=new CompanyService(companies);
+        Company result=service.getCompanyByOrder(2);
+        //then
+        assertThat(result,is(except));
     }
 }

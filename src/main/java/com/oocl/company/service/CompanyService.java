@@ -24,4 +24,8 @@ public class CompanyService {
     public void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
+
+    public Company getCompanyByOrder(int order) {
+        return companies.get(order-1);
+    }
 }
