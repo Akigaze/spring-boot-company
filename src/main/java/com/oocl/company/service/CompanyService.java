@@ -39,4 +39,11 @@ public class CompanyService {
         company.getEmployees().clear();
         companies.remove(company);
     }
+
+    public void updateCompany(int order, Company newCompany) {
+        Company company=companies.get(order-1);
+        company.setCompanyName(newCompany.getCompanyName());
+        company.setEmployees(newCompany.getEmployees());
+        company.setEmployeeNumber(newCompany.getEmployeeNumber());
+    }
 }
