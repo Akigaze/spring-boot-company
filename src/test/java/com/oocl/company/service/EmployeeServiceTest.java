@@ -16,9 +16,6 @@ public class EmployeeServiceTest {
         List<Employee> employees=new ArrayList<>();
         employees.add(new Employee(1,"Mark",22,"man",500));
         employees.add(new Employee(2,"Bale",21,"man",500));
-        employees.add(new Employee(3,"Tracy",20,"woman",500));
-        employees.add(new Employee(4,"Leo",22,"man",500));
-        employees.add(new Employee(5,"Quinn",21,"woman",500));
         //when
         EmployeeService service=new EmployeeService(employees);
         List<Employee> result=service.getEmployees();
@@ -33,9 +30,6 @@ public class EmployeeServiceTest {
         Employee except=new Employee(2,"Bale",21,"man",500);
         employees.add(new Employee(1,"Mark",22,"man",500));
         employees.add(except);
-        employees.add(new Employee(3,"Tracy",20,"woman",500));
-        employees.add(new Employee(4,"Leo",22,"man",500));
-        employees.add(new Employee(5,"Quinn",21,"woman",500));
         //when
         EmployeeService service=new EmployeeService(employees);
         Employee result=service.getEmployeeById(2);
@@ -49,11 +43,26 @@ public class EmployeeServiceTest {
         List<Employee> employees=new ArrayList<>();
         Employee except=new Employee(2,"Bale",21,"man",500);
         employees.add(new Employee(1,"Mark",22,"man",500));
-
         //when
         EmployeeService service=new EmployeeService(employees);
         service.addEmployee(except);
         //then
         assertThat(employees.contains(except),is(true));
+    }
+
+    @Test
+    public void should_delete_a_specific_employee_by_id_when_call_deleteEmployeeById(){
+        //give
+        List<Employee> employees=new ArrayList<>();
+        Employee except=new Employee(2,"Bale",21,"man",500);
+        employees.add(new Employee(1,"Mark",22,"man",500));
+        employees.add(except);
+        //when
+        EmployeeService service=new EmployeeService(employees);
+        Employee emp=service.deleteEmployeeById(2);
+        //then
+        assertThat(employees.contains(except),is(false));
+        assertThat(emp,is(except));
+
     }
 }

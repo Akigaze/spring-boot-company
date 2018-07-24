@@ -36,4 +36,10 @@ public class EmployeeService {
         boolean result=employees.add(emp);
         return result;
     }
+
+    public Employee deleteEmployeeById(int id) {
+        Employee emp=getEmployeeById(id);
+        employees.remove(emp);
+        return emp;
+    }
 }
