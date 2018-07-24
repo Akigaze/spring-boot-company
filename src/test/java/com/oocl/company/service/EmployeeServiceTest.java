@@ -94,6 +94,28 @@ public class EmployeeServiceTest {
         //then
         assertThat(menEmp.contains(man),is(true));
         assertThat(menEmp.contains(woman),is(false));
+    }
 
+    @Test
+    public void should_get_employees_by_page_when_getEmployeesPage(){
+        //give
+        List<Employee> employees=new ArrayList<>();
+        Employee emp1=new Employee(3,"Tracy",20,"woman",500);
+        Employee emp2=new Employee(4,"Leo",22,"man",500);
+        Employee emp3=new Employee(5,"Quinn",21,"woman",500);
+        employees.add(new Employee(1,"Mark",22,"man",500));
+        employees.add(new Employee(2,"Bale",21,"man",500));
+        employees.add(emp1);
+        employees.add(emp2);
+        employees.add(emp3);
+        int pageId=2;
+        int pageSize=2;
+        //when
+        EmployeeService service=new EmployeeService(employees);
+        List<Employee> emps=service.getEmployeesPage(pageId,pageSize);
+        //then
+        assertThat(emps.contains(emp1),is(true));
+        assertThat(emps.contains(emp2),is(true));
+        assertThat(emps.contains(emp3),is(false));
     }
 }

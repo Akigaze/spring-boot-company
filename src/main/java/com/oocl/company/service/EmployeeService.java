@@ -60,4 +60,17 @@ public class EmployeeService {
         }
         return emps;
     }
+
+    public List<Employee> getEmployeesPage(int pageId, int pageSize) {
+        int index=(pageId-1)*pageSize+1;
+        int end=pageId*pageSize+1;
+        List<Employee> selections=new ArrayList<>();
+
+        while (index<end&&index<employees.size()){
+            selections.add(employees.get(index-1));
+            index++;
+        }
+        return selections;
+
+    }
 }
