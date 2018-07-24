@@ -78,6 +78,22 @@ public class EmployeeServiceTest {
         Employee emp=service.updateEmployee(2,newEmp);
         //then
         assertThat(except.toString(),is(newEmp.toString()));
+    }
+
+    @Test
+    public void should_get_man_employees_when_search_men_by_getEmployeeByGender(){
+        //give
+        List<Employee> employees=new ArrayList<>();
+        Employee man=new Employee(2,"Bale",21,"man",500);
+        Employee woman=new Employee(1,"Mark",22,"woman",500);
+        employees.add(man);
+        employees.add(woman);
+        //when
+        EmployeeService service=new EmployeeService(employees);
+        List<Employee> menEmp=service.getEmployeeByGender("man");
+        //then
+        assertThat(menEmp.contains(man),is(true));
+        assertThat(menEmp.contains(woman),is(false));
 
     }
 }
