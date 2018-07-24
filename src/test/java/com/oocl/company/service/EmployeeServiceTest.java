@@ -75,7 +75,7 @@ public class EmployeeServiceTest {
         Employee newEmp=new Employee(2,"Mark",25,"male",600);
         //when
         EmployeeService service=new EmployeeService(employees);
-        Employee emp=service.updateEmployee(2,newEmp);
+        service.updateEmployee(2,newEmp);
         //then
         assertThat(except.toString(),is(newEmp.toString()));
     }
