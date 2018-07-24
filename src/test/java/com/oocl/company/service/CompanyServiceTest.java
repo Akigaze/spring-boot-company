@@ -82,4 +82,20 @@ public class CompanyServiceTest {
         //then
         assertThat(except.toString(),is(newCom.toString()));
     }
+
+    @Test
+    public void should_get_all_employees_of_specific_company_when_call_getCompanyEmployees(){
+        //give
+        List<Company> companys=new ArrayList<>();
+        List<Employee> employees=new ArrayList<>();
+        employees.add(new Employee());
+        Company except=new Company("OOCL",employees);
+        companys.add(except);
+
+        //when
+        CompanyService service=new CompanyService(companys);
+        List<Employee> result=service.getEmployeesOfCompanyEmployees(1);
+        //then
+        assertThat(result,is(employees));
+    }
 }

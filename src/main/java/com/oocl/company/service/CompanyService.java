@@ -1,6 +1,7 @@
 package com.oocl.company.service;
 
 import com.oocl.company.model.Company;
+import com.oocl.company.model.Employee;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -45,5 +46,9 @@ public class CompanyService {
         company.setCompanyName(newCompany.getCompanyName());
         company.setEmployees(newCompany.getEmployees());
         company.setEmployeeNumber(newCompany.getEmployeeNumber());
+    }
+
+    public List<Employee> getEmployeesOfCompanyEmployees(int order) {
+        return companies.get(order-1).getEmployees();
     }
 }
