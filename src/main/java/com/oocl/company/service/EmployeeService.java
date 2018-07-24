@@ -9,10 +9,10 @@ import java.util.stream.Collectors;
 
 @Service
 public class EmployeeService {
-    private List<Employee> employees;
+    public static List<Employee> employees;
 
-    {
-        this.employees=new ArrayList<>();
+    static {
+        employees=new ArrayList<>();
         employees.add(new Employee(1,"Mark",22,"male",500));
         employees.add(new Employee(2,"Bale",21,"male",500));
         employees.add(new Employee(3,"Tracy",20,"female",500));
@@ -24,11 +24,11 @@ public class EmployeeService {
     }
 
     public EmployeeService(List<Employee> employees) {
-        this.employees=employees;
+        EmployeeService.employees=employees;
     }
 
     public List<Employee> getEmployees() {
-        return this.employees;
+        return EmployeeService.employees;
     }
 
     public Employee getEmployeeById(int id) {
