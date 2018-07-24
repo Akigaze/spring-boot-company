@@ -32,4 +32,8 @@ public class EmployeeService {
         return emp;
     }
 
+    public boolean addEmployee(Employee emp) {
+        boolean result=employees.add(emp);
+        return result;
+    }
 }

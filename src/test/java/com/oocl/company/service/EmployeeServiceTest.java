@@ -42,4 +42,18 @@ public class EmployeeServiceTest {
         //then
         assertThat(result.toString(),is(except.toString()));
     }
+
+    @Test
+    public void should_add_a_specific_employee_when_call_addEmployee(){
+        //give
+        List<Employee> employees=new ArrayList<>();
+        Employee except=new Employee(2,"Bale",21,"man",500);
+        employees.add(new Employee(1,"Mark",22,"man",500));
+
+        //when
+        EmployeeService service=new EmployeeService(employees);
+        service.addEmployee(except);
+        //then
+        assertThat(employees.contains(except),is(true));
+    }
 }
