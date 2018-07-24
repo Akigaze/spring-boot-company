@@ -42,4 +42,13 @@ public class EmployeeService {
         employees.remove(emp);
         return emp;
     }
+
+    public Employee updateEmployee(int id, Employee newEmp) {
+        Employee emp=getEmployeeById(id);
+        emp.setAge(newEmp.getAge());
+        emp.setGender(newEmp.getGender());
+        emp.setName(newEmp.getName());
+        emp.setSalary(newEmp.getSalary());
+        return emp;
+    }
 }

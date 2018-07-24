@@ -63,6 +63,21 @@ public class EmployeeServiceTest {
         //then
         assertThat(employees.contains(except),is(false));
         assertThat(emp,is(except));
+    }
+
+    @Test
+    public void should_update_a_specific_employee_when_call_updateEmployee(){
+        //give
+        List<Employee> employees=new ArrayList<>();
+        Employee except=new Employee(2,"Bale",21,"man",500);
+        employees.add(new Employee(1,"Mark",22,"man",500));
+        employees.add(except);
+        Employee newEmp=new Employee(2,"Mark",25,"man",600);
+        //when
+        EmployeeService service=new EmployeeService(employees);
+        Employee emp=service.updateEmployee(2,newEmp);
+        //then
+        assertThat(except.toString(),is(newEmp.toString()));
 
     }
 }
