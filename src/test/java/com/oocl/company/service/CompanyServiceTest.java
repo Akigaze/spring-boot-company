@@ -36,4 +36,17 @@ public class CompanyServiceTest {
         //then
         assertThat(result,is(except));
     }
+
+    @Test
+    public void should_add_a_specific_Company_when_call_addCompany(){
+        //give
+        List<Company> Companys=new ArrayList<>();
+        Company except=new Company();
+        Companys.add(new Company());
+        //when
+        CompanyService service=new CompanyService(Companys);
+        service.addCompany(except);
+        //then
+        assertThat(Companys.contains(except),is(true));
+    }
 }

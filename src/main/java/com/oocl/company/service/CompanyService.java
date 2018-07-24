@@ -28,4 +28,9 @@ public class CompanyService {
     public Company getCompanyByOrder(int order) {
         return companies.get(order-1);
     }
+
+    public Company addCompany(Company company) {
+        companies.add(company);
+        return company;
+    }
 }
