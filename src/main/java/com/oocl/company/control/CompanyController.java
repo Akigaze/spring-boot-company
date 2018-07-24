@@ -5,6 +5,7 @@ import com.oocl.company.model.Employee;
 import com.oocl.company.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,4 +19,10 @@ public class CompanyController {
     public List<Company> getAllCompanies(){
         return companyService.getCompanies();
     }
+
+    @GetMapping("/companies/{order}")
+    public Company getCompany(@PathVariable int order){
+        return companyService.getCompanyByOrder(order);
+    }
+
 }
