@@ -43,4 +43,9 @@ public class CompanyController {
         return companyService.getEmployeesOfCompanyEmployees(order);
     }
 
+    @GetMapping("/companies/page/{page}/pageSize/{pageSize}")
+    public List<Company> getCompanyPage(@PathVariable int page,@PathVariable int pageSize){
+        return companyService.getCompanyPage(page,pageSize);
+    }
+
 }
