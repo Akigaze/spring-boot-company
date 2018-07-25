@@ -33,4 +33,9 @@ public class CompanyController {
         companyService.deleteCompanyByOrder(order);
     }
 
+    @PutMapping("/companies/{order}")
+    public void updateCompany(@PathVariable int order,@RequestBody Company company){
+        companyService.updateCompany(order,company);
+    }
+
 }

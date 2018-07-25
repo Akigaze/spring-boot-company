@@ -2,6 +2,8 @@ package com.oocl.company.model;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class Employee {
     private int id;
@@ -69,5 +71,19 @@ public class Employee {
                 ", gender='" + gender + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return id == employee.id;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
     }
 }

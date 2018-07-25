@@ -72,6 +72,11 @@ public class CompanyService {
         company.setCompanyName(newCompany.getCompanyName());
         company.setEmployees(newCompany.getEmployees());
         company.setEmployeeNumber(newCompany.getEmployeeNumber());
+        for (Employee emp:company.getEmployees()){
+            if (!EmployeeService.employees.contains(emp)){
+                EmployeeService.employees.add(emp);
+            }
+        }
     }
 
     public List<Employee> getEmployeesOfCompanyEmployees(int order) {
