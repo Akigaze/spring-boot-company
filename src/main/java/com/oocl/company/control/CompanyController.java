@@ -38,4 +38,9 @@ public class CompanyController {
         companyService.updateCompany(order,company);
     }
 
+    @GetMapping("/companies/{order}/employees")
+    public List<Employee> getEmployeesOfCompany(@PathVariable int order){
+        return companyService.getEmployeesOfCompanyEmployees(order);
+    }
+
 }
