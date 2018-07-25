@@ -28,4 +28,9 @@ public class CompanyController {
         return companyService.addCompany(emp);
     }
 
+    @DeleteMapping("/companies/{order}")
+    public void deleteCompany(@PathVariable int order){
+        companyService.deleteCompanyByOrder(order);
+    }
+
 }
