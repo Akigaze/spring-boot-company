@@ -3,6 +3,7 @@ package com.oocl.company.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -11,7 +12,7 @@ public class Company {
     private int employeeNumber;
 
     @Autowired
-    private List<Employee> employees;
+    private List<Employee> employees=new ArrayList<>();
 
     public Company() {
     }

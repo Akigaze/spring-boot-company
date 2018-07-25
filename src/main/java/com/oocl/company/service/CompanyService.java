@@ -10,14 +10,28 @@ import java.util.List;
 @Service
 public class CompanyService {
 
-    private List<Company> companies;
+    private List<Company> companies=new ArrayList<>();
 
     {
-        companies=new ArrayList<>();
-        companies.add(new Company("OOCL",EmployeeService.employees.subList(1,2)));
-        companies.add(new Company("Oracle",EmployeeService.employees.subList(3,4)));
-        companies.add(new Company("Tencent",EmployeeService.employees.subList(2,3)));
-        companies.add(new Company("Alipay",EmployeeService.employees.subList(4,5)));
+        List<Employee> emps1 = new ArrayList<>();
+        emps1.add(new Employee(9, "java", 20, "male", 200));
+        EmployeeService.employees.addAll(emps1);
+        companies.add(new Company("OOCL", emps1));
+
+        List<Employee> emps2 = new ArrayList<>();
+        emps2.add(new Employee(12, "C", 20, "male", 200));
+        EmployeeService.employees.addAll(emps2);
+        companies.add(new Company("Oracle", emps2));
+
+        List<Employee> emps3 = new ArrayList<>();
+        emps3.add(new Employee(11, "Go", 15, "female", 200));
+        EmployeeService.employees.addAll(emps3);
+        companies.add(new Company("Tencent", emps3));
+
+        List<Employee> emps4 = new ArrayList<>();
+        emps4.add(new Employee(13, "javascript", 17, "male", 200));
+        EmployeeService.employees.addAll(emps4);
+        companies.add(new Company("Alipay", emps4));
     }
 
     public CompanyService() {
